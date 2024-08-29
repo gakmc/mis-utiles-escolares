@@ -1,0 +1,21 @@
+php artisan make:migration create_ciudades_table
+
+php artisan make:migration create_sucursales_table
+
+php artisan make:migration create_tipos_productos_table
+
+php artisan make:migration create_productos_table
+
+php artisan make:migration create_inventario_table
+
+
+php artisan make:model Producto
+
+php artisan make:model Sucursal
+
+php artisan make:model TipoProducto
+
+php artisan make:model Inventario
+
+php artisan make:model ProductoSucursal
+
