@@ -33,7 +33,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
+        $request->validate([
+            'codigo_barra' => 'required|numeric',
+            'nombre_producto' => 'required|string|max:255',
+            'lote_id' => 'required|numeric',
+            'tipo_producto_id' => 'required',
+            'descripcion' => 'max:255| ',
+            'imagen_producto' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:2048',
+            'codigo_qr' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:2048',
+        ]);
+
     }
 
     /**
