@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\CiudadController;
+use App\Http\Controllers\SucursalController;
+use App\Http\Controllers\TipoProductoController;
+use App\Http\Controllers\ComplementoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +27,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/inventario', function () {
+    return view('admin.inventario.index');
+})->middleware(['auth', 'verified'])->name('inventario');
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -31,5 +40,9 @@ Route::middleware('auth')->group(function () {
 
 Route::name('admin.')->group(function () {
     Route::resource('/producto', ProductoController::class);
+    Route::resource('/ciudad', CiudadController::class);
+    Route::resource('/sucursal', SucursalController::class);
+    Route::resource('/tipo_producto', TipoProductoController::class);
+    Route::get('/complemento', [ComplementoController::class, 'index'])->name('complemento.complemento');
 });
 require __DIR__.'/auth.php';

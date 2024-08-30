@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TipoProducto extends Model
 {
     protected $table = 'tipos_productos';
+    protected $primaryKey = 'id_tipo_producto';
 
     protected $fillable = [
         'nombre_tipo_producto',

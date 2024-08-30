@@ -28,4 +28,9 @@ class Sucursal extends Model
     {
         return $this->hasMany(Inventario::class, 'id_sucursal');
     }
+
+    public function ciudad()
+    {
+        return $this->belongsTo(Ciudad::class, 'ciudad_id');
+    }
 }

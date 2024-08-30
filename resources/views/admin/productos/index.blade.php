@@ -68,8 +68,8 @@
                                     <tr>
                                         <td class="px-6 py-4">
 
-                                            <img class="h-auto max-w-lg mx-auto"
-                                                src="/docs/images/examples/image-1@2x.jpg" alt="image description">
+                                            <img class="h-20 max-w-lg mx-auto"
+                                                src="/storage/img/productos/{{ basename($producto->imagen_producto) }}" alt="{{$producto->nombre_producto}}">
 
                                         </td>
                                         <th scope="row"
@@ -80,7 +80,8 @@
                                             {{$producto->codigo_barra}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            {{$producto->codigo_qr}}
+                                            <img class="h-20 max-w-lg mx-auto"
+                                                src="/storage/img/qr/{{$producto->codigo_qr}}" alt="image description">
                                         </td>
                                         <td class="px-6 py-4">
                                             {{$producto->lote_id}}
