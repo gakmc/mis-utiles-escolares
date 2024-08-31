@@ -12,9 +12,7 @@ class TipoProductoController extends Controller
      */
     public function index()
     {
-        return view('admin.complemento.tipoProducto.index', [
-            'tipos' => TipoProducto::all(),
-        ]);
+       //
     }
 
     /**
@@ -31,7 +29,7 @@ class TipoProductoController extends Controller
     public function store(Request $request)
     {
         $validarData = $request->validate([
-            'nombre_tipo_producto' => 'string|required|max:20'
+            'nombre_tipo_producto' => 'required|string|max:20'
         ],[
             'nombre_tipo_producto.required' => 'El nombre del tipo de producto es obligatorio.',
             'nombre_tipo_producto.max' => 'El nombre del tipo de producto no debe tener más de 20 caracteres.',

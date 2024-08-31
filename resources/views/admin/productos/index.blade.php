@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-8xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('admin.producto.create') }}">
@@ -45,7 +45,7 @@
                                         <th scope="col" class="px-6 py-3">
                                             Descripción
                                         </th>
-                                        <th scope="col" class="px-6 py-3">
+                                        <th scope="col" colspan="2" class="px-6 py-3">
                                             Acciones
                                         </th>
                                     </tr>
@@ -93,8 +93,16 @@
                                             {{$producto->descripcion}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a href="#"
-                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                                            <div class="w-full flex justify-between items-center">
+                                                <a href="{{route('admin.producto.edit', $producto)}}"
+                                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-1">Editar</a>
+                                                <a href="#"
+                                                class="font-medium text-red-600 dark:text-red-500 hover:underline ml-1" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $producto->id_producto }}').submit(); return confirm('¿Estás seguro de que deseas eliminar este producto?');">Eliminar</a>
+                                                <form id="delete-form-{{ $producto->id_producto }}" action="{{ route('admin.producto.destroy', $producto->id_producto) }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -110,4 +118,8 @@
             </div>
         </div>
     </div>
+
+
+    
 </x-app-layout>
+

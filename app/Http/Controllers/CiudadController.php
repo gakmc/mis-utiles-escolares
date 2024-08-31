@@ -12,9 +12,7 @@ class CiudadController extends Controller
      */
     public function index()
     {
-        return view('admin.complemento.ciudad.index', [
-            'ciudades' => Ciudad::all(),
-        ]);
+        //
     }
 
     /**
@@ -31,7 +29,7 @@ class CiudadController extends Controller
     public function store(Request $request)
     {
         $validarData = $request->validate([
-            'nombre_ciudad' => 'string|required|max:15'
+            'nombre_ciudad' => 'required|string|max:15'
         ],[
             'nombre_ciudad.required' => 'El nombre de la ciudad es obligatorio.',
             'nombre_ciudad.max' => 'El nombre de la ciudad no debe tener más de 15 caracteres.',

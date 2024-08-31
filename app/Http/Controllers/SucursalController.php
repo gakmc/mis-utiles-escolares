@@ -13,9 +13,7 @@ class SucursalController extends Controller
      */
     public function index()
     {
-        return view('admin.complemento.sucursal.index', [
-            'sucursales' => Sucursal::all(),
-        ]);
+        //
     }
 
     /**
